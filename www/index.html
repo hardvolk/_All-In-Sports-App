@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-app="aisModule">
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" type="text/css" href="css/modals.css?v=0.0.3">
+        <link rel="stylesheet" type="text/css" href="css/app.css?v=0.0.17">
+
+        <!-- LAS FUENTES DEBEN DESCARGARSE EN PRODUCCION -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link async href="http://fonts.googleapis.com/css?family=Anton" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+
+        <link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+
+
+
+        <title>All-In-Sports</title>
+    </head>
+    <body class="grey darken-4">
+        <div class="navbar-fixed">
+            <nav class="red">
+                <div class="nav-wrapper">
+                    <ul>
+                        <li>
+                            <a id="side-menu-open" href="#!" class="top-gap-10" data-activates="slide-menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                    <a class="brand-logo">All-In Sports</a>
+                </div>
+            </nav>
+        </div>
+
+        <!--SIDE MENU-->
+        <ul id="slide-menu" class="side-nav grey lighten-3">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img id="logo" src="img/escudos/pumas.png">
+                    </div>
+                    <a href="#!mi-cuenta"><img class="circle" src="img/avatar.jpg"></a>
+                    <span class="name text-dark-grey">John Doe</span>
+                    <span class="email text-blue">jdandturk@gmail.com</span>
+                </div>
+            </li>
+            <li>
+                <a href="#!quiniela" class="waves-effect">
+                    <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+                    Quinielas Proximas!
+                </a>
+            </li>
+            <li><div class="divider"></div></li>
+            <li>
+                <a href="#!deportes" class="waves-effect">
+                    <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i>
+                    Deportes
+                </a>
+            </li>
+            <li><div class="divider"></div></li>
+            <li>
+                <a href="#!regalos" class="waves-effect">
+                    <i class="fa fa-gift fa-2x" aria-hidden="true"></i>
+                    Regalos
+                </a>
+            </li>
+            <li><div class="divider"></div></li>
+            <li>
+                <a href="#!mi-cuenta" class="waves-effect">
+                    <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+                    Mi Cuenta
+                </a>
+            </li>
+            <li><div class="divider"></div></li>
+            <li>
+                <a href="#!tabla-general" class="waves-effect">
+                    <i class="fa fa-list-ol fa-2x" aria-hidden="true"></i>
+                    Tabla General
+                </a>
+            </li>
+        </ul>
+        <main ng-view></main>
+
+
+
+        <!-- Angular JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.js"></script>
+        <script src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="js/app.js?v=0.0.36"></script>
+        <script type="text/javascript" src="js/modals.js?v=0.0.13"></script>
+        <!-- ANGULAR MODULE -->
+        <script type="text/javascript" src="js/all-in-sports.js?v=0.0.22"></script>
+        <!-- ANGULAR CONTROLLERS -->
+        <script type="text/javascript" src="js/controllers/regalos.js?v=0.0.2"></script>
+        <script type="text/javascript" src="js/controllers/mi-cuenta.js?v=0.0.2"></script>
+        <script type="text/javascript" src="js/controllers/quinielas.js?v=0.0.6"></script>
+       <script>
+           $('#side-menu-open').sideNav({
+               closeOnClick: true,
+               draggable: true
+           });
+       </script>
+    </body>
+</html>

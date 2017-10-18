@@ -1,0 +1,60 @@
+                                <!-- Quinielas  -->
+<div class="navbar-fixed">
+    <nav class="blue-grey">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo left">${{ user.coins }}</a>
+            <ul class="right">
+                <li>
+                    <a href="#" class="blue-grey darken-2">
+                       <!--  <i class="fa fa-list-alt blue-text" aria-hidden="true"></i> -->
+                       <i class="material-icons left">view_module</i> Mis Apuestas
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="blue-grey darken-4 left">
+    <!-- APUESTA -->
+    <div ng-repeat="(sportName, gameList) in sportGames">
+        <h5 class="left-gap white-text">{{ sportName }}</h5>
+        <div class="row">
+            <div ng-repeat="game in gameList" class="col s12 m6">
+                <a class="btn-floating disabled right waves-effect waves-light"><i class="material-icons">done</i></a>
+                <div class="card-panel grey lighten-4 z-depth-4">
+                    <div class="box-row box-space-between box-items-center">
+                        <img class="miniatura-logo-quiniela" src="{{ game.Player1Image }}">
+                        <div class="center-align">
+                            <h5>{{ game.Player1Name }} vs. {{ game.Player2Name }}</h5>
+                            <p>{{ game.LocalDate }} ({{ game.LocalTime }})</p>
+                        </div>
+                        <img class="miniatura-logo-quiniela" src="{{ game.Player2Image }}">
+                    </div>
+                    <div>
+                        <p class="range-field">
+                            <input class="quiniela-range active" type="range" min="{{ game.MinBet }}" max="{{ user.coins }}" name="bet" value="{{ game.bet }}" ng-model="game.bet" style="height: 30px;">
+                        </p>
+                    </div>          
+                    <div class="row">
+                        <div class="col s4 m4">
+                            <input id="inp1-G{{ game.Id }}" class="with-gap" name="G-{{ game.Id }}" type="radio" id="test4">
+                            <label for="inp1-G{{ game.Id }}">Local</label>
+                        </div>
+
+                        <div class="col s4 m4">
+                            <input id="inp2-G{{ game.Id }}" class="with-gap" name="G-{{ game.Id }}" type="radio" id="test5">
+                            <label for="inp2-G{{ game.Id }}">Empate</label>
+                        </div>
+
+                        <div class="col s4 m4">
+                            <input id="inp3-G{{ game.Id }}" class="with-gap" name="G-{{ game.Id }}" type="radio" id="test6">
+                            <label for="inp3-G{{ game.Id }}">Visitante</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

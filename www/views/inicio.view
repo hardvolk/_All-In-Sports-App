@@ -1,0 +1,8 @@
+<h1>Estas en la sección del Home</h1>
+<p>Esta es la fase 1 del desarrollo de la app</p>
+<a class="btn blue" id="open_modal">Abre un Modal</a>
+<script type="text/javascript">
+    document.getElementById('open_modal').addEventListener('click', function(){
+        Modal.show("Abriste un modal");
+    });
+</script>
