@@ -7,7 +7,7 @@ ais.config(function($routeProvider) {
         controller : "Mi-CuentaController"
     })
     .when("/quiniela", {
-        templateUrl : "views/quinielas.html?v=0.0.16",
+        templateUrl : "views/quinielas.html?v=0.0.17",
         controller: "QuinielasController"
     })
     .when("/regalos", {
@@ -45,7 +45,7 @@ ais.factory('$requester', ['$http', function($http){
             return this;
         },
         config: {},
-        call: function(callbackFn){
+        call: function(callbackFn, errorCallbackFn){
             // Adding the API URL and 'X-Auth-Token'
             this.config.url = app.API_URL + this.config.url;
             this.config.headers = {"X-Auth-Token" : app.TOKEN};
@@ -56,12 +56,14 @@ ais.factory('$requester', ['$http', function($http){
             // Making request, first param in 'then' is callback function, second is error handler
             $http(this.config).then(
                 function success(response){
-                    if(Modal.visible == true) Modal.close();
+                    if(typeof request.config.showLoadingModal !== "undefined" && Modal.visible == true) Modal.close();
                     callbackFn(response);
                 }, 
                 function errorHanlder(response){
                     console.log("---ERROR RESPONSE", response);
-                    Modal.show(response.statusText, "Oh Oh");
+                    console.log("RESPONSE DATA", response.data);
+                    Modal.show("Ocurri&oacute; un problema al comunicarnos con nuestros servidores. Vuelve a intentarlo", "Oh Oh");
+                    if(typeof errorCallbackFn !== "undefined") errorCallbackFn(response);
             });
         }
     };
