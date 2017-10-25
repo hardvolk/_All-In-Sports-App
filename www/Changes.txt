@@ -1,5 +1,4 @@
 /* LAST POINT */
-[VISTA QUINIELAS]
-    - Modificar la forma en que se muestra la cantidad de la apuesta
-    - Envío de la apuesta
-    - Actualizar monedas
+[Authenticate]
+    - Realizar la vista
+    - Realizar el controller. Registro y Login en un solo controller

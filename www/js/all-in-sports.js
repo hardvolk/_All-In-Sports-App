@@ -2,6 +2,10 @@ var ais = angular.module("aisModule", ["ngRoute"]);
 
 ais.config(function($routeProvider) {
     $routeProvider
+    .when("/authenticate", {
+        templateUrl : "views/authenticate.html?v=0.0.0",
+        controller : "AuthenticateController"
+    })
     .when("/mi-cuenta", {
         templateUrl : "views/mi-cuenta.html?v=0.0.12",
         controller : "Mi-CuentaController"
@@ -34,6 +38,23 @@ ais.config(function($routeProvider) {
         })
     ;
 });
+
+/*
+* Run Authentication
+**/
+ais.run(["$location", "$userAuth", "$user", function($location, $userAuth, $user){
+    if(!$userAuth.isLoggedIn){
+        console.log("No valid Token, you need to login");
+        $location.path('/authenticate');
+    }else{
+        // Validate Token
+        $user.get(function(user){
+            $location.path('/quiniela');
+        }, function(error){
+            $location.path('/authenticate');
+        });        
+    }
+}]);
 
 /**
 * Service: Makes http request to the server and handles the response
@@ -73,17 +94,49 @@ ais.factory('$requester', ['$http', function($http){
 /*
 * Service: User Info
 **/
-ais.factory('$user', ['$requester', function($requester){
-    
+ais.factory('$user', ['$requester', function($requester){    
     return {
         req: $requester,
         get: function(callback){
             this.req.setup({
                 url: "users/my-info",
                 method: "GET"
-            }).call(function(response){
+            }).call(function(response){ // On Success
                 callback(response.data);
+            }, function(response){ // On Error
+                Modal.show("Necesitas volver a iniciar sesión");
+                return null;
             });
         }
     };
 }]);
+
+/*
+* Service: User Auth
+**/
+ais.factory('$userAuth', function(){
+    // Verify Storage support
+    if (typeof(Storage) === "undefined") {
+        console.log("NO HAY SOPORTE PARA ALMACENAMIENTO LOCAL");
+        return {isLoggedIn: false}
+    }
+
+    // Verify token
+    var storage = window.localStorage;
+    var token = storage.getItem("token");
+    if(token != null && token != ''){
+        app.TOKEN = token;
+        return {
+            isLoggedIn: true,
+            token: token,
+        };
+    }else{
+        return {
+            isLoggedIn: false,
+            setToken: function(_token){
+                app.TOKEN = _token;
+                storage.setItem('token', _token);
+            }
+        };
+    }
+});
