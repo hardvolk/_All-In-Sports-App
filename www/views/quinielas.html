@@ -15,11 +15,11 @@
     </nav>
 </div>
 
-<div class="blue-grey darken-4 left">
+<div style="width: 100%" class="blue-grey darken-4 left">
     <!-- APUESTA -->
     <div ng-repeat="(sportName, gameList) in sportGames">
         <h5 class="left-gap white-text">{{ sportName }}</h5>
-        <h6 class="text-center white-text" ng-if="gameList.length == 0">Por el momento no hay apuestas.</h6>
+        <h6 class="text-center white-text" ng-if="gameList.length == 0">Por el momento no hay eventos.</h6>
         <div class="row">
             <div id="item-{{game.Id}}" class="col s12 m6" ng-repeat="game in gameList" ng-init="game.betReady = false; game.winner='none'; game.bet = 0">
                 <button class="btn-floating right waves-effect waves-light"

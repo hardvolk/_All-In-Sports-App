@@ -48,7 +48,7 @@ var app = {
      API_URL: 'http://localhost/_All-In-Sports-Backend/public/',
 
      /* USER TOKEN */
-     TOKEN: 'Y2VzYXJAbWFpbC5jb206OjE1MDIyMzY2MzU=',
+     TOKEN: 'ZmlkZWxAbWFpbC5jb206OjE1MDg5NDU5OTk=',
 };
 
 app.initialize();
