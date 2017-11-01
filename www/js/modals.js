@@ -26,8 +26,8 @@ function showModal(_content, _header, _persist) {
     typeof _persist === "undefined" ? this.persist = false : this.persist = true;
 
     _html = '<div class="app-modal">' +
-                '<h1 id="modal-header">' + _header + ' </h1>' +
-                '<p id="moda-text">' + _content + ' </p>' 
+                '<h3 id="modal-header">' + _header + ' </h3>' +
+                '<h5 id="moda-text">' + _content + ' </h5>' 
             '</div>';
 
     this.innerHTML = _html;

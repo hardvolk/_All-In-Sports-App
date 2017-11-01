@@ -3,7 +3,7 @@ var ais = angular.module("aisModule", ["ngRoute"]);
 ais.config(function($routeProvider) {
     $routeProvider
     .when("/authenticate", {
-        templateUrl : "views/authenticate.html?v=0.0.0",
+        templateUrl: "views/authenticate.html?v=0.0.1",
         controller : "AuthenticateController"
     })
     .when("/mi-cuenta", {
@@ -36,6 +36,7 @@ ais.config(function($routeProvider) {
     .when("/mercado-panel", {
         templateUrl : "views/mercado-panel.html?v=0.0.23"
         })
+    .otherwise({ redirectTo: '/authenticate'})
     ;
 });
 
@@ -45,6 +46,8 @@ ais.config(function($routeProvider) {
 ais.run(["$location", "$userAuth", "$user", function($location, $userAuth, $user){
     if(!$userAuth.isLoggedIn){
         console.log("No valid Token, you need to login");
+        // Hide menu button
+        $('#side-menu-open').addClass('hide');
         $location.path('/authenticate');
     }else{
         // Validate Token
@@ -136,6 +139,8 @@ ais.factory('$userAuth', function(){
             setToken: function(_token){
                 app.TOKEN = _token;
                 storage.setItem('token', _token);
+                // Show Menu button
+                $('#side-menu-open').removeClass('hide');
             }
         };
     }
