@@ -30,11 +30,11 @@ ais.config(function($routeProvider) {
     .when("/tabla-general", {
     templateUrl : "views/tabla-general.html?v=0.0.23"
     })
-    .when("/mercado", {
-        templateUrl : "views/mercado.html?v=0.0.23"
+    .when("/coleccionables", {
+        templateUrl : "views/coleccionables-deportes.html?v=0.0.23"
         })
-    .when("/mercado-panel", {
-        templateUrl : "views/mercado-panel.html?v=0.0.23"
+    .when("/coleccionables", {
+        templateUrl : "views/coleccionables.html?v=0.0.23"
         })
     .otherwise({ redirectTo: '/authenticate'})
     ;
