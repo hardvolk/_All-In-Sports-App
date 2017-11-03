@@ -3,7 +3,7 @@ ais.controller('Mi-CuentaController', ['$scope', '$interval', function($scope, $
 
 //TIMER!!! 
     // Set the date we're counting down to
-    $scope.countDownDate_monedas = new Date("10 2, 2017 15:37:25").getTime();
+    $scope.countDownDate_monedas = new Date("11 3, 2017 15:37:25").getTime();
     $scope.countDownText_monedas = "00:00:00";
 
     var cdInterval;
@@ -30,7 +30,7 @@ ais.controller('Mi-CuentaController', ['$scope', '$interval', function($scope, $
               // If the count down is finished, write some text 
               if (distance < 0) {
                 $scope.stopTimer_monedas();
-                $scope.countDownText_monedas = "SUBASTA CONCLUIDA";
+                $scope.countDownText_monedas = "Monedas Gratis";
               }
 
         }, 1000);
