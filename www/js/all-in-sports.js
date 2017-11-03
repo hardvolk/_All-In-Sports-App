@@ -124,24 +124,27 @@ ais.factory('$userAuth', function(){
         return {isLoggedIn: false}
     }
 
+    var userAuth = {
+        isLoggedIn: false,
+        token: "",
+        setToken: function(_token){
+            app.TOKEN = _token;
+            storage.setItem('token', _token);
+            // Show Menu button
+            $('#side-menu-open').removeClass('hide');
+            this.isLoggedIn = true;
+        }
+    };
+
     // Verify token
     var storage = window.localStorage;
     var token = storage.getItem("token");
     if(token != null && token != ''){
         app.TOKEN = token;
-        return {
-            isLoggedIn: true,
-            token: token,
-        };
+        userAuth.token = token;
+        userAuth.isLoggedIn = true;
     }else{
-        return {
-            isLoggedIn: false,
-            setToken: function(_token){
-                app.TOKEN = _token;
-                storage.setItem('token', _token);
-                // Show Menu button
-                $('#side-menu-open').removeClass('hide');
-            }
-        };
+        userAuth.isLoggedIn = false;
     }
+    return userAuth;
 });

@@ -32,6 +32,9 @@ ais.controller('AuthenticateController', ['$scope', '$requester', '$userAuth', '
             if(errorResponse.status == 422){
                 Modal.show("El usuario ingresado o el correo no son correctos", "Oh Oh");    
             }
+            else if(errorResponse.status == 401){
+                Modal.show("Al parecer no estas registrado. Debes registrarte", "Oh Oh");
+            }
             
         });
     };
