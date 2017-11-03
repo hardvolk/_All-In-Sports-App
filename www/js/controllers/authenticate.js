@@ -38,4 +38,7 @@ ais.controller('AuthenticateController', ['$scope', '$requester', '$userAuth', '
             
         });
     };
+
+    // Registration
+    
 }]);
