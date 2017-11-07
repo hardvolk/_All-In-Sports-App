@@ -3,11 +3,11 @@ var ais = angular.module("aisModule", ["ngRoute"]);
 ais.config(function($routeProvider) {
     $routeProvider
     .when("/authenticate", {
-        templateUrl: "views/authenticate.html?v=0.0.1",
+        templateUrl: "views/authenticate.html?v=0.0.2",
         controller : "AuthenticateController"
     })
     .when("/mi-cuenta", {
-        templateUrl : "views/mi-cuenta.html?v=0.0.12",
+        templateUrl : "views/mi-cuenta.html?v=0.0.13",
         controller : "Mi-CuentaController"
     })
     .when("/quiniela", {
@@ -117,7 +117,7 @@ ais.factory('$user', ['$requester', function($requester){
 /*
 * Service: User Auth
 **/
-ais.factory('$userAuth', function(){
+ais.factory('$userAuth', ['$location', function($location){
     // Verify Storage support
     if (typeof(Storage) === "undefined") {
         console.log("NO HAY SOPORTE PARA ALMACENAMIENTO LOCAL");
@@ -133,6 +133,13 @@ ais.factory('$userAuth', function(){
             // Show Menu button
             $('#side-menu-open').removeClass('hide');
             this.isLoggedIn = true;
+        },
+        logout: function(){
+            this.isLoggedIn = false;
+            storage.removeItem('token');
+            // Hide menu button
+            $('#side-menu-open').addClass('hide');
+            $location.path('/authenticate');
         }
     };
 
@@ -147,4 +154,4 @@ ais.factory('$userAuth', function(){
         userAuth.isLoggedIn = false;
     }
     return userAuth;
-});
+}]);
