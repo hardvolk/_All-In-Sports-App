@@ -1,4 +1,0 @@
-/* LAST POINT */
-[Authenticate]
-    - Realizar la vista
-    - Realizar el controller. Registro y Login en un solo controller

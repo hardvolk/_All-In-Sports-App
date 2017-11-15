@@ -48,95 +48,139 @@
         <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 
 
-
+        
+        
         <title>All-In-Sports</title>
     </head>
     <body class="grey darken-4">
-        <div class="navbar-fixed">
-            <nav class="red">
-                <div class="nav-wrapper">
-                    <ul>
-                        <li>
-                            <a id="side-menu-open" href="#!" class="top-gap-10" data-activates="slide-menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                    <a class="brand-logo">All-In Sports</a>
-                </div>
-            </nav>
+
+
+<!-- <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '157060324901368',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.11'
+        });
+        
+        FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+</script> -->
+
+<script>
+// Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ </script>
+
+
+<div class="navbar-fixed">
+    <nav class="red">
+        <div class="nav-wrapper">
+            <ul>
+                <li>
+                    <a id="side-menu-open" href="#!" class="top-gap-10" data-activates="slide-menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+            <a class="brand-logo">All-In Sports</a>
         </div>
+    </nav>
+</div>
 
-        <!--SIDE MENU-->
-        <ul id="slide-menu" class="side-nav grey lighten-3">
-            <li>
-                <div class="userView">
-                    <div class="background">
-                        <img id="logo" src="img/escudos/pumas.png">
-                    </div>
-                    <a href="#!mi-cuenta"><img class="circle" src="img/avatar.jpg"></a>
-                    <span class="name text-dark-grey">John Doe</span>
-                    <span class="email text-blue">jdandturk@gmail.com</span>
-                </div>
-            </li>
-            <li>
-                <a href="#!quiniela" class="waves-effect">
-                    <i class="fa fa-money fa-2x" aria-hidden="true"></i>
-                    Quinielas Proximas!
-                </a>
-            </li>
-            <li><div class="divider"></div></li>
-            <li>
-                <a href="#!deportes" class="waves-effect">
-                    <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i>
-                    Deportes
-                </a>
-            </li>
-            <li><div class="divider"></div></li>
-            <li>
-                <a href="#!regalos" class="waves-effect">
-                    <i class="fa fa-gift fa-2x" aria-hidden="true"></i>
-                    Regalos
-                </a>
-            </li>
-            <li><div class="divider"></div></li>
-            <li>
-                <a href="#!mi-cuenta" class="waves-effect">
-                    <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
-                    Mi Cuenta
-                </a>
-            </li>
-            <li><div class="divider"></div></li>
-            <li>
-                <a href="#!tabla-general" class="waves-effect">
-                    <i class="fa fa-list-ol fa-2x" aria-hidden="true"></i>
-                    Tabla General
-                </a>
-            </li>
-        </ul>
-        <main ng-view></main>
+<!--SIDE MENU-->
+<ul id="slide-menu" class="side-nav grey lighten-3">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img id="logo" src="img/teams/pumas.png">
+            </div>
+            <a href="#!mi-cuenta"><img class="circle" src="img/avatar.jpg"></a>
+            <span class="name text-dark-grey">John Doe</span>
+            <span class="email text-blue">jdandturk@gmail.com</span>
+        </div>
+    </li>
+    <li>
+        <a href="#!quiniela" class="waves-effect">
+            <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+            Quinielas Proximas!
+        </a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a href="#!deportes" class="waves-effect">
+            <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i>
+            Deportes
+        </a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a href="#!regalos" class="waves-effect">
+            <i class="fa fa-gift fa-2x" aria-hidden="true"></i>
+            Regalos
+        </a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a href="#!mi-cuenta" class="waves-effect">
+            <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+            Mi Cuenta
+        </a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a href="#!tabla-general" class="waves-effect">
+            <i class="fa fa-list-ol fa-2x" aria-hidden="true"></i>
+            Tabla General
+        </a>
+    </li>
+</ul>
+<main ng-view></main>
 
 
 
-        <!-- Angular JS -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/angular.min.js"></script>
-        <script src="js/angular-route.js"></script>
-        <script src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+    <!-- Angular JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
 
-        <script type="text/javascript" src="js/app.js?v=0.0.36"></script>
-        <script type="text/javascript" src="js/modals.js?v=0.0.14"></script>
-        <!-- ANGULAR MODULE -->
-        <script type="text/javascript" src="js/all-in-sports.js?v=0.0.26"></script>
-        <!-- ANGULAR CONTROLLERS -->
-        <script type="text/javascript" src="js/controllers/regalos.js?v=0.0.2"></script>
-        <script type="text/javascript" src="js/controllers/mi-cuenta.js?v=0.0.2"></script>
-        <script type="text/javascript" src="js/controllers/quinielas.js?v=0.0.8"></script>
-        <script type="text/javascript" src="js/controllers/authenticate.js?v=0.0.2s"></script>
-       <script>
-           $('#side-menu-open').sideNav({
-               closeOnClick: true,
-               draggable: true
-           });
-       </script>
-    </body>
+    <script type="text/javascript" src="js/app.js?v=0.0.36"></script>
+    <script type="text/javascript" src="js/modals.js?v=0.0.14"></script>
+    <!-- ANGULAR MODULE -->
+    <script type="text/javascript" src="js/all-in-sports.js?v=0.0.26"></script>
+    <!-- ANGULAR CONTROLLERS -->
+    <script type="text/javascript" src="js/controllers/regalos.js?v=0.0.2"></script>
+    <script type="text/javascript" src="js/controllers/mi-cuenta.js?v=0.0.2"></script>
+    <script type="text/javascript" src="js/controllers/quinielas.js?v=0.0.8"></script>
+    <script type="text/javascript" src="js/controllers/authenticate.js?v=0.0.2s"></script>
+    <script>
+        $('#side-menu-open').sideNav({
+            closeOnClick: true,
+            draggable: true
+        });
+    </script>
+</body>
 </html>
