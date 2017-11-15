@@ -1,7 +1,7 @@
 
-ais.controller('Mi-CuentaController', ['$scope', '$interval', function($scope, $interval){
+ais.controller('Mi-CuentaController', ['$scope', '$interval', '$userAuth', function($scope, $interval, $userAuth){
 
-//TIMER!!! 
+  //TIMER!!! 
     // Set the date we're counting down to
     $scope.countDownDate_monedas = new Date("11 3, 2017 15:37:25").getTime();
     $scope.countDownText_monedas = "00:00:00";
@@ -44,4 +44,8 @@ ais.controller('Mi-CuentaController', ['$scope', '$interval', function($scope, $
     };
 
     $scope.updateCountDown_monedas();
+  //Logout
+  $scope.exitAccount = function(){
+    $userAuth.logout();
+  };
 }]);
