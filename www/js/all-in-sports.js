@@ -14,6 +14,10 @@ ais.config(function($routeProvider) {
         templateUrl : "views/quinielas.html?v=0.0.17",
         controller: "QuinielasController"
     })
+    .when("/mis-apuestas", {
+        templateUrl : "views/mis-apuestas.html?v=0.0.2",
+        controller: "MisApuestasController"
+    })
     .when("/regalos", {
         templateUrl : "views/regalos.html?v=0.0.22",
         controller: "RegalosController"        
@@ -52,7 +56,7 @@ ais.run(["$location", "$userAuth", "$user", function($location, $userAuth, $user
     }else{
         // Validate Token
         $user.get(function(user){
-            $location.path('/quiniela');
+            //$location.path('/quiniela');
         }, function(error){
             $location.path('/authenticate');
         });        

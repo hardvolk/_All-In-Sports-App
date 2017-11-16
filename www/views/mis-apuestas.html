@@ -1,0 +1,26 @@
+                                <!-- Mis Apuestas  -->
+
+<div style="width: 100%" class="blue-grey darken-4 left">
+    <!-- APUESTAS -->    
+    <div class="row">
+        <h6 class="text-center white-text" ng-if="sportGames.length == 0">Por el momento no hay apuestas.</h6>
+        <div ng-repeat="game in activeGames" id="item-{{game.Id}}" class="col s12 m6">
+            <p class="left left-gap">{{ game.SportName }}</p>
+            <div class="card-panel grey lighten-4 z-depth-4">
+                <div class="row clearfix valign-wrapper">
+                    <div class="col s5 center">
+                        <img class="miniatura-logo-quiniela" src="{{ game.P1Image }}">
+                        <h6><b>{{ game.P1Name }}</b></h6>
+                    </div>
+                    <div class="col s2 center"><p><b>vs.</b></p></div>
+                    <div class="col s5 center">
+                        <img class="miniatura-logo-quiniela" src="{{ game.P2Image }}">
+                        <h6><b>{{ game.P2Name }}</b></h6>
+                    </div>
+                </div>    
+                <div class="chip right">APUESTA: <b class="green-text">${{ game.Bet }}</b></div>            
+            </div>
+        </div>
+    </div>
+    
+</div>
