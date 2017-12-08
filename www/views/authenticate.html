@@ -1,20 +1,60 @@
+<!-- Google Sign in  -->
+<script>
+  function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  }
+  function onFailure(error) {
+      console.log(error);
+  }
+  function renderButton() {
+      gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+      });
+  }
+  </script>
+  
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> 
+  <meta name="google-signin-client_id" content="978458804991-0q5gm8niu0jsi5ej9661laplatt0urja.apps.googleusercontent.com">
+
+<!-- Facebook Sign in  -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.11&appId=157060324901368';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="row">
-    <h5 class="text-center white-text">Iniciar Sesión</h5>
-    <form class="col s12" name="login_form" role="form" ng-submit="login.checkout()">
-        <div class="row">
-            <div class="input-field col s12 white-text">
-              <input id="user_name" type="email" required 
-                ng-model="login.user" ng-class="{invalid: login.isUserWrong }">
-              <label for="user_name" data-error="wrong" data-success="right">Usuario</label>
-            </div>
-            <div class="input-field col s12 white-text">
-              <input id="user_pass" type="password" required 
-                ng-model="login.pass" ng-class="{invalid: login.isPasswordWrong }">
-              <label for="user_pass" data-error="wrong" data-success="right">Password</label>
-            </div>
-            <button class="btn white black-text right" type="submit" name="action">Entrar
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
-    </form> 
+  <h5 class="text-center white-text">Iniciar Sesión</h5>
+  <form class="col s12" name="login_form" role="form" ng-submit="login.checkout()">
+      <div class="row">
+          <div class="input-field col s12 white-text">
+            <input id="user_name" type="email" required 
+              ng-model="login.user" ng-class="{invalid: login.isUserWrong }">
+            <label for="user_name" data-error="wrong" data-success="right">Usuario</label>
+          </div>
+          <div class="input-field col s12 white-text">
+            <input id="user_pass" type="password" required 
+              ng-model="login.pass" ng-class="{invalid: login.isPasswordWrong }">
+            <label for="user_pass" data-error="wrong" data-success="right">Password</label>
+          </div>
+          <button class="btn white black-text right" type="submit" name="action">Entrar
+              <i class="material-icons right">send</i>
+          </button>
+      </div>
+
+      <div id="my-signin2"></div>
+<br>
+  <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+  </form> 
 </div>
