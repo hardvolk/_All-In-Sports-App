@@ -1,0 +1,25 @@
+{
+  "name": "all-in-sports",
+  "version": "1.0.0",
+  "description": "App for sport bets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardvolk/_All-In-Sports-App.git"
+  },
+  "keywords": [
+    "all",
+    "in",
+    "sports",
+    "app"
+  ],
+  "author": "Codebreacker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hardvolk/_All-In-Sports-App/issues"
+  },
+  "homepage": "https://github.com/hardvolk/_All-In-Sports-App#readme"
+}

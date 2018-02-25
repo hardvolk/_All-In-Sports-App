@@ -43,12 +43,13 @@ var app = {
     },
 
     // REMOTE API URL
-    // API_URL: 'http://all-insports.net/API/',
-    // LOCAL URL * REMOVE ON PRODUCTION *
-     API_URL: 'http://localhost/_All-In-Sports-Backend/public/',
+     API_URL: 'http://all-insports.net/API/',
 
      /* USER TOKEN */
      TOKEN: 'ZmlkZWxAbWFpbC5jb206OjE1MDg5NDU5OTk=',
+
+     /* SERVER REQUEST INTERVAL */
+     SERVER_REQUEST_INTERVAL: 5000,
 };
 
 app.initialize();
