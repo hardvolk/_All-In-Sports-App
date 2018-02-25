@@ -56,7 +56,7 @@ ais.run(["$location", "$userAuth", "$user", function($location, $userAuth, $user
     }else{
         // Validate Token
         $user.get(function(user){
-            //$location.path('/quiniela');
+            //TODO: Run shortpoll for coins and messages
         }, function(error){
             $location.path('/authenticate');
         });        
@@ -86,7 +86,8 @@ ais.factory('$requester', ['$http', function($http){
             // Making request, first param in 'then' is callback function, second is error handler
             $http(this.config).then(
                 function success(response){
-                    if(typeof request.config.showLoadingModal !== "undefined" && Modal.visible == true) Modal.close();
+                    if(typeof request.config.showLoadingModal !== "undefined" && Modal.visible == true) 
+                        Modal.close();
                     callbackFn(response);
                 }, 
                 function errorHanlder(response){
@@ -105,9 +106,8 @@ ais.factory('$requester', ['$http', function($http){
 **/
 ais.factory('$user', ['$requester', function($requester){    
     return {
-        req: $requester,
         get: function(callback){
-            this.req.setup({
+            $requester.setup({
                 url: "users/my-info",
                 method: "GET"
             }).call(function(response){ // On Success

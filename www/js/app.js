@@ -47,6 +47,9 @@ var app = {
 
      /* USER TOKEN */
      TOKEN: 'ZmlkZWxAbWFpbC5jb206OjE1MDg5NDU5OTk=',
+
+     /* SERVER REQUEST INTERVAL */
+     SERVER_REQUEST_INTERVAL: 5000,
 };
 
 app.initialize();
